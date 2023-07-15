@@ -1,7 +1,0 @@
-# Site monitoring fragment for simonhaddadgervais.com
-
-check host simonhaddadgervais.com with address simonhaddadgervais.com
-    if failed port 80 protocol http for 2 cycles then alert
-
-check file nginx_error.log with path /var/log/nginx_error.log
-    if size > 15 MB then exec "/usr/local/sbin/logrotate -f /var/log/nginx_error.log"
