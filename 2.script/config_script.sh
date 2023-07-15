@@ -7,7 +7,6 @@ sed -i "/#\$nrconf{restart} = 'i';/s/.*/\$nrconf{restart} = 'a';/" /etc/needrest
 
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get update
 
 sleep 20
 
