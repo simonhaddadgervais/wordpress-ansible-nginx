@@ -1,0 +1,69 @@
+---
+- name: create cache
+  file:
+    path: /usr/share/nginx/cache
+    state: directory
+
+- name: create fcgi
+  file:
+    path: /usr/share/nginx/cache/fcgi
+    state: directory
+
+- name: Start and enable services
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop:
+    - nginx
+    - php7.4-fpm
+
+- name: Create logs directory
+  file:
+    path: /home/simonhaddadgervais/logs
+    state: directory
+    owner: simonhaddadgervais
+    group: www-data
+
+- name: Create phpfpm_error.log
+  file:
+    path: /home/simonhaddadgervais/logs/phpfpm_error.log
+    state: touch
+    owner: simonhaddadgervais
+  changed_when: false
+
+- name: Remove old pool conf
+  file:
+    path: /etc/php/8.1/fpm/pool.d/www.conf
+    state: absent
+
+- name: Remove default nginxconfig file
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Configure Nginx
+  template:
+      src: nginx.conf.j2
+      dest: /etc/nginx/nginx.conf
+      owner: root
+      group: root
+      mode: '0644'
+
+- name: Configure Nginx vhost
+  template:
+    src: nginx_wordpress_vhost.conf
+    dest:  /etc/nginx/conf.d/simonhaddadgervais.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Nginx
+
+- name: Configure PHP-fpm
+  template:
+      src: php-fpm.conf.j2
+      dest: /etc/php/7.4/fpm/pool.d/simonhaddadgervais.conf
+      owner: root
+      group: root
+      mode: '0644'
+  notify: Restart PHP-FPM

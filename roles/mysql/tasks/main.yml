@@ -1,0 +1,30 @@
+---
+- name: Check if the root password is previously set or NOT
+  shell: mysqladmin -u root status
+  changed_when: false
+  failed_when: false
+  register: root_pwd_check
+
+- name: Set the root password
+  mysql_user:
+    name: root
+    password: rootpassword
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  when: root_pwd_check.rc == 0
+
+- name: Creating wordpress DB with the Root User
+  mysql_db:
+    name: simonhaddadgervais
+    state: present
+    login_user: root
+    login_password: rootpassword
+
+- name: Creating wordpress user and give him all privileges on wordpress db
+  mysql_user:
+    name: simonhaddadgervais
+    password: dbpassword
+    state: present
+    priv: "*.*:ALL"
+    login_user: root
+    login_password: rootpassword
+  changed_when: false

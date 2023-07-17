@@ -1,0 +1,34 @@
+---
+- name: Upgrade system packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: Install mysql nginx php and monit
+  apt:
+    name:
+      - mysql-server-8.0
+      - libmysqlclient-dev
+      - nginx
+      - php-mysql
+      - php-fpm
+      - monit
+      - php-curl
+      - php-common
+      - php-imagick
+      - php-mbstring
+      - php-xml
+      - php-zip
+      - php-json
+      - php-xmlrpc
+      - php-gd
+      - unzip
+      - python3-pymysql
+    state: present
+  changed_when: false
+
+- name: Create user for website
+  user:
+    name: simonhaddadgervais
+    shell: /bin/bash
+    home: /home/simonhaddadgervais

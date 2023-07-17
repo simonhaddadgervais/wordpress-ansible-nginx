@@ -1,0 +1,22 @@
+---
+- name: Execute multiple roles
+  hosts: all
+  gather_facts: true
+  become: true
+
+  roles:
+    - common
+    - webserver
+    - mysql
+    - wordpress
+
+  tasks:
+    
+  - name: Start and enable services
+    service:
+      name: "{{ item }}"
+      state: started
+      enabled: yes
+    loop:
+      - nginx
+      - php7.4-fpm
