@@ -20,16 +20,16 @@
 
 - name: Create logs directory
   file:
-    path: /home/simonhaddadgervais/logs
+    path: "/home/{{website}}/logs"
     state: directory
-    owner: simonhaddadgervais
+    owner: "{{user}}"
     group: www-data
 
 - name: Create phpfpm_error.log
   file:
-    path: /home/simonhaddadgervais/logs/phpfpm_error.log
+    path: "/home/{{website}}/logs/phpfpm_error.log"
     state: touch
-    owner: simonhaddadgervais
+    owner: "{{user}}"
   changed_when: false
 
 - name: Remove old pool conf
@@ -52,8 +52,8 @@
 
 - name: Configure Nginx vhost
   template:
-    src: nginx_wordpress_vhost.conf
-    dest:  /etc/nginx/conf.d/simonhaddadgervais.conf
+    src: nginx_wordpress_vhost.conf.j2
+    dest:  "/etc/nginx/conf.d/{{http_conf}}"
     owner: root
     group: root
     mode: '0644'
@@ -61,8 +61,8 @@
 
 - name: Configure PHP-fpm
   template:
-      src: php-fpm.conf.j2
-      dest: /etc/php/7.4/fpm/pool.d/simonhaddadgervais.conf
+      src: php-fpm_vhost.conf.j2
+      dest: "/etc/php/7.4/fpm/pool.d/{{http_conf}}"
       owner: root
       group: root
       mode: '0644'
