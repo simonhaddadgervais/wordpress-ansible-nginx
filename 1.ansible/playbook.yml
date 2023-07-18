@@ -1,5 +1,5 @@
 ---
-- name: Execute multiple roles
+- name: Deploy WordPress Website
   hosts: all
   gather_facts: true
   become: true
@@ -12,10 +12,10 @@
 
   tasks:
     
-  - name: Start and enable services
+  - name: Restart services
     service:
       name: "{{ item }}"
-      state: started
+      state: restarted
       enabled: yes
     loop:
       - nginx

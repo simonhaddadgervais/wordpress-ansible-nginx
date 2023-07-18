@@ -34,7 +34,7 @@
 
 - name: Remove old pool conf
   file:
-    path: /etc/php/8.1/fpm/pool.d/www.conf
+    path: /etc/php/7.4/fpm/pool.d/www.conf
     state: absent
 
 - name: Remove default nginxconfig file

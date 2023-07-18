@@ -2,7 +2,7 @@
 #System Settings
 php_modules:
   - php-mysql
-  - php-fpm
+  - php7.4-fpm
   - php-curl
   - php-common
   - php-imagick
