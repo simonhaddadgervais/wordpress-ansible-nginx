@@ -1,0 +1,14 @@
+---
+#System Settings
+php_modules: [ 'php-mysql', 'php-fpm', 'php-curl', 'php-common', 'php-imagick', 'php-mbstring', 'php-xml', 'php-zip', 'php-json', 'php-xmlrpc', 'php-gd' ]
+mysql: [ 'mysql-server-8.0', 'libmysqlclient-dev', 'python3-pymysql']
+
+#MySQL Settings
+mysql_root_password: "rootpassword"
+mysql_db: "simonhaddadgervais"
+mysql_user: "simonhaddadgervais"
+mysql_password: "password"
+
+#HTTP Settings
+http_host: "simonhaddadgervais"
+http_conf: "your_domain.conf"
