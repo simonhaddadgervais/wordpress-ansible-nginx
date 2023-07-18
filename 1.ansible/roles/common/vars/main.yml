@@ -1,0 +1,19 @@
+---
+#System Settings
+php_modules:
+  - php-mysql
+  - php-fpm
+  - php-curl
+  - php-common
+  - php-imagick
+  - php-mbstring
+  - php-xml
+  - php-zip
+  - php-json
+  - php-xmlrpc
+  - php-gd
+  
+mysql:
+  - mysql-server-8.0
+  - libmysqlclient-dev
+  - python3-pymysql

@@ -1,20 +1,19 @@
 ---
 - name: Check if public_html directory exists
   stat:
-    path: /home/simonhaddadgervais/public_html
+    path: "/home/{{ website }}/public_html"
   register: public_html_check
 
 - name: Unzip WordPress
   unarchive:
     src: https://wordpress.org/latest.tar.gz
-    dest: /home/simonhaddadgervais/
+    dest: "/home/{{ website }}/"
     remote_src: yes
-    owner: simonhaddadgervais
+    owner: "{{ user }}"
     group: www-data
     mode : 0755
   when: not public_html_check.stat.exists
 
 - name: Move WordPress files to public_html
-  command: mv /home/simonhaddadgervais/wordpress /home/simonhaddadgervais/public_html
+  command: mv "/home/{{ website }}/wordpress" "/home/{{ website }}/public_html"
   when: not public_html_check.stat.exists
-

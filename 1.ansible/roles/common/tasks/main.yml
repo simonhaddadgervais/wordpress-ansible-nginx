@@ -4,27 +4,10 @@
     upgrade: yes
     update_cache: yes
 
-- name: Install mysql nginx php and monit
+- name: Install packages and extensions
   apt:
-    name:
-      - mysql-server-8.0
-      - libmysqlclient-dev
-      - nginx
-      - php-mysql
-      - php-fpm
-      - monit
-      - php-curl
-      - php-common
-      - php-imagick
-      - php-mbstring
-      - php-xml
-      - php-zip
-      - php-json
-      - php-xmlrpc
-      - php-gd
-      - unzip
-      - python3-pymysql
-    state: present
+    name: "{{ item }}"
+  loop: "{{ php_modules + mysql + ['nginx', 'monit', 'unzip'] }}"
   changed_when: false
 
 - name: Create user for website

@@ -1,0 +1,5 @@
+#Webserver Settings
+http_host: "simonhaddadgervais"
+http_conf: "simonhaddadgervais.conf"
+website: "simonhaddadgervais"
+user: "simonhaddadgervais"

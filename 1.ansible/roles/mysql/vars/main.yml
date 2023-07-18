@@ -1,0 +1,5 @@
+#MySQL Settings
+mysql_root_password: "rootpassword"
+mysql_db: "simonhaddadgervais"
+mysql_user: "simonhaddadgervais"
+mysql_user_password: "password"

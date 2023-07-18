@@ -8,7 +8,7 @@
 - name: Set the root password
   mysql_user:
     name: root
-    password: rootpassword
+    password: "{{ mysql_root_password }}"
     login_unix_socket: /var/run/mysqld/mysqld.sock
   when: root_pwd_check.rc == 0
 
@@ -17,14 +17,14 @@
     name: simonhaddadgervais
     state: present
     login_user: root
-    login_password: rootpassword
+    login_password: "{{ mysql_root_password }}"
 
 - name: Creating wordpress user and give him all privileges on wordpress db
   mysql_user:
-    name: simonhaddadgervais
-    password: dbpassword
+    name: "{{ mysql_user }}"
+    password: "{{ mysql_user_password }}"
     state: present
     priv: "*.*:ALL"
     login_user: root
-    login_password: rootpassword
+    login_password: "{{ mysql_root_password }}"
   changed_when: false
