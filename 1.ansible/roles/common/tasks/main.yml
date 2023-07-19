@@ -7,7 +7,7 @@
 - name: Install packages and extensions
   apt:
     name: "{{ item }}"
-  loop: "{{ php_modules + mysql + ['nginx', 'monit', 'unzip'] }}"
+  loop: "{{ php_modules + mysql + ['nginx', 'monit', 'unzip', 'certbot', 'python3-certbot-nginx'] }}"
   changed_when: false
 
 - name: Create user for website

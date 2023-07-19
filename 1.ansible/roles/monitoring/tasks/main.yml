@@ -1,0 +1,8 @@
+---
+- name: Change permissions for /etc/monit/monitrc
+  file:
+    path: /etc/monit/monitrc
+    mode: '0600'
+
+- name: Run certbot command
+  shell: echo -e "haddad.simon@aol.fr\nY\nN\n1" | sudo certbot --nginx

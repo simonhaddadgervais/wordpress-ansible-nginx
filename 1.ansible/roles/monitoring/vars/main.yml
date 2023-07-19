@@ -1,0 +1,5 @@
+#Monit Settings
+domain_name: "simonhaddadgervais.com"
+email: "haddad.simon@aol.fr"
+monit_user: "simon"
+password: "strongpassword"

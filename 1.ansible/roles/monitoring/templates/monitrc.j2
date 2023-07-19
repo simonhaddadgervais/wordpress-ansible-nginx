@@ -1,11 +1,11 @@
 set daemon  30
 set logfile /var/log/monit.log
-set alert haddad.simon@aol.fr
+set alert {{email}}
 
 set httpd port 2812
     use address localhost  # only accept connection from localhost
     # allow localhost        # allow localhost to connect to the server and
-    allow simon:strongpassword
+    allow {{monit_user}}:{{password}}
 
 # Check nginx
 check process nginx with pidfile /var/run/nginx.pid
@@ -16,7 +16,7 @@ check host localmysql with address 127.0.0.1
       if failed port 3306 protocol mysql then alert
 
 # Check php-fpm
-check process phpfpm with pidfile /run/php/php8.1-fpm.pid
+check process phpfpm with pidfile /run/php/php7.4-fpm.pid
       if cpu > 50% for 2 cycles then alert
       # if total cpu > 60% for 5 cycles then restart
       if memory > 800 MB then alert
@@ -24,4 +24,4 @@ check process phpfpm with pidfile /run/php/php8.1-fpm.pid
 
 
 # include files for individual sites
-include /etc/monit/conf-available/site-wordpress.cnf
+include /etc/monit/conf-available/wordpress.cnf

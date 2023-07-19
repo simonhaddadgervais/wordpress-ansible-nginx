@@ -9,6 +9,7 @@
     - webserver
     - mysql
     - wordpress
+    - monitoring
 
   tasks:
     
@@ -20,3 +21,4 @@
     loop:
       - nginx
       - php7.4-fpm
+      - monit
