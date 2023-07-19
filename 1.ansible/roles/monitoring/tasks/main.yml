@@ -4,5 +4,5 @@
     path: /etc/monit/monitrc
     mode: '0600'
 
-- name: Run certbot command
-  shell: echo -e "haddad.simon@aol.fr\nY\nN\n1" | sudo certbot --nginx
+- name: COnfigure certbot
+  shell: "certbot --nginx --non-interactive --agree-tos -m {{email}} -d {{website}}"
