@@ -1,12 +1,12 @@
 ---
 
 - name: Copy monit website config
-  copy:
+  template:
     src: wordpress.cnf.j2
     dest: /etc/monit/conf-available/wordpress.cnf
 
 - name: Copy monit configuration
-  copy:
+  template:
     src: monitrc.j2
     dest: /etc/monit/monitrc
     mode: '0600'
