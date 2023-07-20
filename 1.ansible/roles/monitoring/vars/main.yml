@@ -1,5 +1,4 @@
 #Monit Settings
-website: "test.simonhaddadgervais.com"
 domain_name: "simonhaddadgervais.com"
 email: "haddad.simon@aol.fr"
 monit_user: "simon"

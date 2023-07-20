@@ -1,10 +1,13 @@
 ---
-- name: Change permissions for /etc/monit/monitrc
-  file:
-    path: /etc/monit/monitrc
+
+- name: Copy monit website config
+  copy:
+    src: wordpress.cnf.j2
+    dest: /etc/monit/conf-available/wordpress.cnf
+
+- name: Copy monit configuration
+  copy:
+    src: monitrc.j2
+    dest: /etc/monit/monitrc
     mode: '0600'
-
-- name: COnfigure certbot
-  shell: "certbot --nginx --non-interactive --agree-tos -m {{email}} -d {{website}}"
-
 
