@@ -1,4 +1,4 @@
-# WordPress website hosted on AWS
+# WordPress - BASH SCRIPT
 
 ## Instructions
 #### Create an EC2 instance
