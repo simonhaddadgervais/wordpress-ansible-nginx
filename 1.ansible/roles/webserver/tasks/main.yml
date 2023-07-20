@@ -50,9 +50,6 @@
       group: root
       mode: '0644'
 
-- name: Configure certbot
-  shell: "certbot --nginx --non-interactive --agree-tos -m {{email}} -d {{server_name}}"
-
 - name: Configure Nginx vhost
   template:
     src: nginx_wordpress_vhost.conf.j2
@@ -70,3 +67,6 @@
       group: root
       mode: '0644'
   notify: Restart PHP-FPM
+
+- name: Configure certbot
+  shell: "certbot --nginx --non-interactive --agree-tos -m {{email}} -d {{server_name}}"
