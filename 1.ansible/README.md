@@ -15,10 +15,10 @@ Install Ansible and Git
 
 Git clone this repo
 
-Configure the hosts in inventory folder
+Configure the hosts in inventory folder  
 Configure the variables in each role, to match your own domain name, passwords, email, db name etc..
 
-Run ansible-playbook playbook.yml
+Run `ansible-playbook playbook.yml`
 
 #### Now we can set up the WordPress website as we see fit for our business!
 
