@@ -1,5 +1,8 @@
 # WordPress - ANSIBLE
 
+![Example Image](https://i.postimg.cc/NjZWLTd2/ansible-infra.jpg)
+
+
 ## Instructions
 #### Create an EC2 instance
 

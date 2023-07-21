@@ -1,5 +1,7 @@
 # WordPress - BASH SCRIPT
 
+![Example Image](https://i.postimg.cc/1z9DG7Ck/wordpressproject.png)
+
 ## Instructions
 #### Create an EC2 instance
 

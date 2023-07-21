@@ -1,5 +1,7 @@
 # WordPress website hosted on AWS
 
+![Example Image](https://i.postimg.cc/NjZWLTd2/ansible-infra.jpg)
+
 This project aims to set up a production grade Nginx webserver on Ubuntu EC2 instance, hosting a WordPress application.
 This configuration also includes:
 * Security hardening with permissions, SSH keys.
