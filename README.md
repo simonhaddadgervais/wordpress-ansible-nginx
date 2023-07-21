@@ -9,7 +9,7 @@ This configuration also includes:
 ------------------------------
 I created two versions for this project.  
 One which use **Ansible**, the other use **Bash scripts**. They both do the same things.  
-My process was first deploying everything manually on the remote machine, then automating all the command with Bash scripts,  
+My process was first deploying everything manually on the remote machine, then automating all the command with Bash scripts, 
 and finally I replaced scripts with Ansible, which is way cleaner and more efficient.
 
 
